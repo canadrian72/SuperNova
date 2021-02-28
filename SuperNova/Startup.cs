@@ -66,6 +66,9 @@ namespace SuperNova
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
+
+            Launcher launcher = new Launcher();
+            launcher.gpioInit();
         }
     }
 }

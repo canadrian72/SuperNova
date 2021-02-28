@@ -10,8 +10,8 @@ namespace SuperNova
         public string launch { get; set; }
         public GpioPin pin;
         public int range;
-
-        public void launchTreat()
+        
+        public void gpioInit()
         {
             Pi.Init<BootstrapWiringPi>();
 
@@ -19,7 +19,10 @@ namespace SuperNova
             pin = (GpioPin)Pi.Gpio[BcmPin.Gpio23];
             pin.PinMode = GpioPinDriveMode.Output;
             pin.StartSoftPwm(0, range);
+        }
 
+        public void launchTreat()
+        {
             for (var x = 0; x <= 100; x++)
             {
                 pin.SoftPwmValue = range / 100 * x;
