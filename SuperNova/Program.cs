@@ -8,8 +8,6 @@ namespace SuperNova
     {
         public static void Main(string[] args)
         {
-            Launcher launcher = new Launcher();
-            launcher.pwmInit();
             CreateHostBuilder(args).Build().Run();
         }
 
