@@ -15,7 +15,7 @@ namespace SuperNova
         {
             Pi.Init<BootstrapWiringPi>();
 
-            range = 180;
+            range = 360;
             pin = (GpioPin)Pi.Gpio[BcmPin.Gpio23];
             pin.PinMode = GpioPinDriveMode.Output;
             pin.StartSoftPwm(0, range);
