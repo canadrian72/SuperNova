@@ -5,27 +5,35 @@ export class Launch extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { currentCount: 0 };
-    this.incrementCounter = this.incrementCounter.bind(this);
-  }
-
-  incrementCounter() {
-    this.setState({
-      currentCount: this.state.currentCount + 1
-    });
+    this.state = { launchTreat : false };
+    this.launch = this.launch.bind(this);
   }
 
   render() {
     return (
       <div>
-        <h1>Counter</h1>
+        <h1>Launch A Treat</h1>
 
-        <p>This is a simple example of a React component.</p>
-
-        <p aria-live="polite">Current count: <strong>{this.state.currentCount}</strong></p>
-
-        <button className="btn btn-primary" onClick={this.incrementCounter}>Increment</button>
+        <p>Press the button to Yeet a Treet</p>
+             
+        <button className="btn btn-primary" onClick={this.launch}>Launch</button>
       </div>
     );
-  }
+    }
+
+    async launch() {
+        const axios = require('axios');
+
+        axios.post('/Launcher', {
+            "launch": JSON.stringify(this.state.launchTreat)
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        this.state.lightOn = !this.state.lightOn;
+        console.log("STATE OF LIGHT ON: " + this.state.lightOn);
+    }
 }
