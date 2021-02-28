@@ -9,6 +9,7 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get install -
 
 RUN npm install -g npm
 RUN npm --version
+RUN npm install --save axios
 
 
 # copy csproj and restore as distinct layers
