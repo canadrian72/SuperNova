@@ -10,7 +10,7 @@ namespace SuperNova.Controllers
         [HttpPost]
         public void LaunchTreat([FromBody] Launcher launcher)
         {
-            launcher.launchTreat();
+            launcher.LaunchTreat();
         }
     }
 }

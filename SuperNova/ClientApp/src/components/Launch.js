@@ -25,7 +25,7 @@ export class Launch extends Component {
         const axios = require('axios');
 
         axios.post('/Launcher', {
-            "launch": JSON.stringify(this.state.launchTreat)
+            "power": 0
         })
             .then(function (response) {
                 console.log(response);
@@ -34,6 +34,5 @@ export class Launch extends Component {
                 console.log(error);
             });
         this.state.lightOn = !this.state.lightOn;
-        console.log("STATE OF LIGHT ON: " + this.state.lightOn);
     }
 }

@@ -1,25 +1,28 @@
-﻿using System;
+﻿using MQTTnet;
+using MQTTnet.Client.Options;
+using MQTTnet.Server;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
-using System.Device.Gpio;
+using System.Threading.Tasks;
 
 
 namespace SuperNova
 {
     public class Launcher
     {
-        GpioController controller = new GpioController();
-        private static readonly int pin = 23;
 
-        public Launcher()
+        public int power { get; set; }
+
+        public Launcher(int power)
         {
-            controller.OpenPin(pin, PinMode.Output);
+            this.power = power;
         }
 
-        public void launchTreat()
+        public void LaunchTreat()
         {
-            controller.Write(pin, PinValue.High);
-            Thread.Sleep(100);
-            controller.Write(pin, PinValue.Low);
+            Program.PublishLaunch();
         }
     }
 }
